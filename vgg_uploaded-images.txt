@@ -5,48 +5,48 @@ Command Line Arguments:
 
 Pet Image Label Dictionary has 4 key-value pairs.
 Below are 4 of them:
- 1 key:      Labrador_retriever_01.jpg  label:         labrador retriever
- 2 key:                 Raccoon_01.jpg  label:                    raccoon
+ 1 key:       Computer_keyboard_01.jpg  label:          computer keyboard
+ 2 key:      Labrador_retriever_01.jpg  label:         labrador retriever
  3 key:      Labrador_retriever_02.jpg  label:         labrador retriever
- 4 key:       Computer_keyboard_01.jpg  label:          computer keyboard
+ 4 key:                 Raccoon_01.jpg  label:                    raccoon
 
      MATCH:
-
-     Labrador_retriever_01.jpg: 
-Real:         labrador retriever   Classifier:             labrador retriever
 
       Computer_keyboard_01.jpg: 
 Real:          computer keyboard   Classifier:      computer keyboard, keypad
 
- NOT A MATCH:
+     Labrador_retriever_01.jpg: 
+Real:         labrador retriever   Classifier:             labrador retriever
 
-                Raccoon_01.jpg: 
-Real:                    raccoon   Classifier:       kit fox, vulpes macrotis
+ NOT A MATCH:
 
      Labrador_retriever_02.jpg: 
 Real:         labrador retriever   Classifier:                 french bulldog
+
+                Raccoon_01.jpg: 
+Real:                    raccoon   Classifier:       kit fox, vulpes macrotis
 
 # Total Images 4 # Matches: 2 # NOT Matches: 2
 
      MATCH:
 
-     Labrador_retriever_01.jpg: 
-Real:         labrador retriever   Classifier:             labrador retriever  
-PetLabelDog: 1  ClassLabelDog: 1
-
       Computer_keyboard_01.jpg: 
 Real:          computer keyboard   Classifier:      computer keyboard, keypad  
 PetLabelDog: 0  ClassLabelDog: 0
 
- NOT A MATCH:
+     Labrador_retriever_01.jpg: 
+Real:         labrador retriever   Classifier:             labrador retriever  
+PetLabelDog: 1  ClassLabelDog: 1
 
-                Raccoon_01.jpg: 
-Real:                    raccoon   Classifier:       kit fox, vulpes macrotis  
-PetLabelDog: 0  ClassLabelDog: 0
+ NOT A MATCH:
 
      Labrador_retriever_02.jpg: 
 Real:         labrador retriever   Classifier:                 french bulldog  
 PetLabelDog: 1  ClassLabelDog: 1
+
+                Raccoon_01.jpg: 
+Real:                    raccoon   Classifier:       kit fox, vulpes macrotis  
+PetLabelDog: 0  ClassLabelDog: 0
 
 # Total Images 4 # Matches: 2 # NOT Matches: 2
 
@@ -69,6 +69,6 @@ Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  50.0
  'pct_correct_notdogs': 100.0,
  'pct_match': 50.0}
 []
-['Raccoon_01.jpg', 'Labrador_retriever_02.jpg']
+['Labrador_retriever_02.jpg', 'Raccoon_01.jpg']
 
-** Total Elapsed Runtime: 0:0:6
+** Total Elapsed Runtime: 0:0:1

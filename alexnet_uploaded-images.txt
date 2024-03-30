@@ -5,10 +5,10 @@ Command Line Arguments:
 
 Pet Image Label Dictionary has 4 key-value pairs.
 Below are 4 of them:
- 1 key:      Labrador_retriever_01.jpg  label:         labrador retriever
- 2 key:                 Raccoon_01.jpg  label:                    raccoon
+ 1 key:       Computer_keyboard_01.jpg  label:          computer keyboard
+ 2 key:      Labrador_retriever_01.jpg  label:         labrador retriever
  3 key:      Labrador_retriever_02.jpg  label:         labrador retriever
- 4 key:       Computer_keyboard_01.jpg  label:          computer keyboard
+ 4 key:                 Raccoon_01.jpg  label:                    raccoon
 
      MATCH:
 
@@ -17,14 +17,14 @@ Real:         labrador retriever   Classifier:             labrador retriever
 
  NOT A MATCH:
 
-                Raccoon_01.jpg: 
-Real:                    raccoon   Classifier:                         badger
+      Computer_keyboard_01.jpg: 
+Real:          computer keyboard   Classifier:                      space bar
 
      Labrador_retriever_02.jpg: 
 Real:         labrador retriever   Classifier:                    soccer ball
 
-      Computer_keyboard_01.jpg: 
-Real:          computer keyboard   Classifier:                      space bar
+                Raccoon_01.jpg: 
+Real:                    raccoon   Classifier:                         badger
 
 # Total Images 4 # Matches: 1 # NOT Matches: 3
 
@@ -36,16 +36,16 @@ PetLabelDog: 1  ClassLabelDog: 1
 
  NOT A MATCH:
 
-                Raccoon_01.jpg: 
-Real:                    raccoon   Classifier:                         badger  
+      Computer_keyboard_01.jpg: 
+Real:          computer keyboard   Classifier:                      space bar  
 PetLabelDog: 0  ClassLabelDog: 0
 
      Labrador_retriever_02.jpg: 
 Real:         labrador retriever   Classifier:                    soccer ball  
 PetLabelDog: 1  ClassLabelDog: 0
 
-      Computer_keyboard_01.jpg: 
-Real:          computer keyboard   Classifier:                      space bar  
+                Raccoon_01.jpg: 
+Real:                    raccoon   Classifier:                         badger  
 PetLabelDog: 0  ClassLabelDog: 0
 
 # Total Images 4 # Matches: 1 # NOT Matches: 3
@@ -69,6 +69,6 @@ Pct Corr dog:  50.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  50.0
  'pct_correct_notdogs': 100.0,
  'pct_match': 25.0}
 ['Labrador_retriever_02.jpg']
-['Raccoon_01.jpg', 'Labrador_retriever_02.jpg', 'Computer_keyboard_01.jpg']
+['Computer_keyboard_01.jpg', 'Labrador_retriever_02.jpg', 'Raccoon_01.jpg']
 
 ** Total Elapsed Runtime: 0:0:0

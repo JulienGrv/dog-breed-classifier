@@ -48,6 +48,6 @@ def get_pet_labels(image_dir: str) -> dict[str, list[Any]]:
     filenames = (os.path.basename(path) for path in listdir(image_dir))
     filename_label_pairs = (
         (filename, [filename.rpartition("_")[0].replace("_", " ").lower().strip()])
-        for filename in filenames
+        for filename in sorted(filenames)
     )
     return dict(filename_label_pairs)
