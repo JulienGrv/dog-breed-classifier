@@ -38,8 +38,6 @@ def get_pet_labels(image_dir: str) -> dict[str, list[Any]]:
       List. The list contains for following item:
          index 0 = pet image label (string)
     """
-    # Replace None with the results_dic dictionary that you created with this
-    # function
     filenames = (os.path.basename(path) for path in os.listdir(image_dir))
     filename_label_pairs = (
         (filename, [filename.rpartition("_")[0].replace("_", " ").lower().strip()])

@@ -35,12 +35,6 @@ def get_input_args() -> argparse.Namespace:
     Returns:
      parse_args() -data structure that stores the command line arguments object
     """
-    # Create Parse using ArgumentParser
-
-    # Create 3 command line arguments as mentioned above using add_argument() from ArguementParser method
-
-    # Replace None with parser.parse_args() parsed argument collection that
-    # you created with this function
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
