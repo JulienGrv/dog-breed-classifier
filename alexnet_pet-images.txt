@@ -315,27 +315,23 @@ Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  80.0
  ** Check Statistics - calculated from this function as a check:
 N Images: 40  N Dog Images: 30  N NotDog Images: 10 
 Pct Corr dog: 100.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  80.0
-{'n_correct_breed': 24,
- 'n_correct_dogs': 30,
- 'n_correct_notdogs': 10,
- 'n_dogs_img': 30,
- 'n_images': 40,
- 'n_match': 30,
- 'n_notdogs_img': 10,
- 'pct_correct_breed': 80.0,
- 'pct_correct_dogs': 100.0,
- 'pct_correct_notdogs': 100.0,
- 'pct_match': 75.0}
-[]
-['Beagle_01141.jpg',
- 'Beagle_01170.jpg',
- 'Boston_terrier_02285.jpg',
- 'Golden_retriever_05182.jpg',
- 'Golden_retriever_05257.jpg',
- 'Great_pyrenees_05367.jpg',
- 'cat_01.jpg',
- 'gecko_02.jpg',
- 'gecko_80.jpg',
- 'great_horned_owl_02.jpg']
+
+
+*** Results Summary for CNN Model Architecture alexnet ***
+N Images            :  40
+N Dog Images        :  30
+N Not-Dog Images    :  10
+pct_correct_breed   : 80.00%
+pct_correct_dogs    : 100.00%
+pct_correct_notdogs : 100.00%
+pct_match           : 75.00%
+
+INCORRECT Dog Breed Assignments:
+Real:                     beagle   Classifier:               english foxhound
+Real:                     beagle   Classifier:  walker hound, walker foxhound
+Real:             boston terrier   Classifier:                        basenji
+Real:           golden retriever   Classifier:                tibetan mastiff
+Real:           golden retriever   Classifier:           afghan hound, afghan
+Real:             great pyrenees   Classifier:                         kuvasz
 
 ** Total Elapsed Runtime: 0:0:1

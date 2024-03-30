@@ -4,9 +4,9 @@
 #
 # PROGRAMMER: Julien Grave
 # DATE CREATED: 28.03.24
-# REVISED DATE:
+# REVISED DATE: 30.03.24
 # PURPOSE: Create a function calculates_results_stats that calculates the
-#          statistics of the results of the programrun using the classifier's model
+#          statistics of the results of the program run using the classifier's model
 #          architecture to classify the images. This function will use the
 #          results in the results dictionary to calculate these statistics.
 #          This function will then put the results statistics in a dictionary
@@ -38,11 +38,25 @@
 #            pct_correct_notdogs - percentage of correctly classified NON-dogs
 #
 ##
-# TODO 5: Define calculates_results_stats function below, please be certain to replace None
-#       in the return statement with the results_stats_dic dictionary that you create
-#       with this function
-#
-def calculates_results_stats(results_dic):
+
+from typing import Any, TypedDict
+
+
+class Stats(TypedDict):
+    n_correct_breed: int
+    n_correct_dogs: int
+    n_correct_notdogs: int
+    n_dogs_img: int
+    n_images: int
+    n_match: int
+    n_notdogs_img: int
+    pct_correct_breed: float
+    pct_correct_dogs: float
+    pct_correct_notdogs: float
+    pct_match: float
+
+
+def calculates_results_stats(results_dic: dict[str, list[Any]]) -> Stats:
     """
     Calculates statistics of the results of the program run using classifier's model
     architecture to classifying pet images. Then puts the results statistics in a
@@ -54,7 +68,7 @@ def calculates_results_stats(results_dic):
              (index)idx 0 = pet image label (string)
                     idx 1 = classifier label (string)
                     idx 2 = 1/0 (int)  where 1 = match between pet image and
-                            classifer labels and 0 = no match between labels
+                            classifier labels and 0 = no match between labels
                     idx 3 = 1/0 (int)  where 1 = pet image 'is-a' dog and
                             0 = pet Image 'is-NOT-a' dog.
                     idx 4 = 1/0 (int)  where 1 = Classifier classifies image
@@ -68,8 +82,6 @@ def calculates_results_stats(results_dic):
                      and the previous topic Calculating Results in the class for details
                      on how to calculate the counts and statistics.
     """
-    # Replace None with the results_stats_dic dictionary that you created with
-    # this function
     n_correct_breed = sum(
         result[2] == 1 and result[3] == 1 for result in results_dic.values()
     )
@@ -83,20 +95,26 @@ def calculates_results_stats(results_dic):
     n_images = len(results_dic)
     n_match = sum(result[2] for result in results_dic.values())
     n_notdogs_img = n_images - n_dogs_img
-    pct_correct_breed = n_correct_breed * 100 / n_dogs_img
-    pct_correct_dogs = n_correct_dogs * 100 / n_dogs_img
-    pct_correct_notdogs = n_correct_notdogs * 100 / n_notdogs_img
-    pct_match = n_match * 100 / n_images
-    return {
-        "n_correct_breed": n_correct_breed,
-        "n_correct_dogs": n_correct_dogs,
-        "n_correct_notdogs": n_correct_notdogs,
-        "n_dogs_img": n_dogs_img,
-        "n_images": n_images,
-        "n_match": n_match,
-        "n_notdogs_img": n_notdogs_img,
-        "pct_correct_breed": pct_correct_breed,
-        "pct_correct_dogs": pct_correct_dogs,
-        "pct_correct_notdogs": pct_correct_notdogs,
-        "pct_match": pct_match,
-    }
+    if n_dogs_img:
+        pct_correct_breed = n_correct_breed * 100 / n_dogs_img
+        pct_correct_dogs = n_correct_dogs * 100 / n_dogs_img
+    else:
+        pct_correct_breed = 0
+        pct_correct_dogs = 0
+    pct_correct_notdogs = (
+        n_correct_notdogs * 100 / n_notdogs_img if n_notdogs_img else 0
+    )
+    pct_match = n_match * 100 / n_images if n_images else 0
+    return Stats(
+        n_correct_breed=n_correct_breed,
+        n_correct_dogs=n_correct_dogs,
+        n_correct_notdogs=n_correct_notdogs,
+        n_dogs_img=n_dogs_img,
+        n_images=n_images,
+        n_match=n_match,
+        n_notdogs_img=n_notdogs_img,
+        pct_correct_breed=pct_correct_breed,
+        pct_correct_dogs=pct_correct_dogs,
+        pct_correct_notdogs=pct_correct_notdogs,
+        pct_match=pct_match,
+    )

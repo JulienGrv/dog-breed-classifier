@@ -4,7 +4,7 @@
 #
 # PROGRAMMER: Julien Grave
 # DATE CREATED: 28.03.24
-# REVISED DATE:
+# REVISED DATE: 30.03.24
 # PURPOSE: Create a function adjust_results4_isadog that adjusts the results
 #          dictionary to indicate whether or not the pet image label is of-a-dog,
 #          and to indicate whether or not the classifier image label is of-a-dog.
@@ -31,13 +31,11 @@
 #           label isn't a dog.
 #
 ##
-# TODO 4: Define adjust_results4_isadog function below, specifically replace the None
-#       below by the function definition of the adjust_results4_isadog function.
-#       Notice that this function doesn't return anything because the
-#       results_dic dictionary that is passed into the function is a mutable
-#       data type so no return is needed.
-#
-def adjust_results4_isadog(results_dic, dogfile):
+
+from typing import Any
+
+
+def adjust_results4_isadog(results_dic: dict[str, list[Any]], dogfile: str) -> None:
     """
     Adjusts the results dictionary to determine if classifier correctly
     classified images 'as a dog' or 'not a dog' especially when not a match.
@@ -49,7 +47,7 @@ def adjust_results4_isadog(results_dic, dogfile):
                   index 0 = pet image label (string)
                   index 1 = classifier label (string)
                   index 2 = 1/0 (int)  where 1 = match between pet image
-                    and classifer labels and 0 = no match between labels
+                    and classifier labels and 0 = no match between labels
                 ------ where index 3 & index 4 are added by this function -----
                  NEW - index 3 = 1/0 (int)  where 1 = pet image 'is-a' dog and
                             0 = pet Image 'is-NOT-a' dog.
@@ -67,12 +65,9 @@ def adjust_results4_isadog(results_dic, dogfile):
     Returns:
            None - results_dic is mutable data type so no return needed.
     """
-    dognames = set()
     with open(dogfile) as text_io:
-        for name in text_io:
-            dognames.add(name.strip().lower())
+        dognames = {name.strip().lower() for name in text_io}
+
     for result in results_dic.values():
-        label = result[0]
-        result.append(int(label in dognames))
-        classifier_label = result[1]
-        result.append(int(classifier_label in dognames))
+        result.append(int(result[0] in dognames))
+        result.append(int(result[1] in dognames))

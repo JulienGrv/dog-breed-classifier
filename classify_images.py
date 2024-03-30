@@ -4,15 +4,15 @@
 #
 # PROGRAMMER: Julien Grave
 # DATE CREATED: 28.03.24
-# REVISED DATE:
+# REVISED DATE: 30.03.24
 # PURPOSE: Create a function classify_images that uses the classifier function
 #          to create the classifier labels and then compares the classifier
 #          labels to the pet image labels. This function inputs:
 #            -The Image Folder as image_dir within classify_images and function
 #             and as in_arg.dir for function call within main.
 #            -The results dictionary as results_dic within classify_images
-#             function and results for the functin call within main.
-#            -The CNN model architecture as model wihtin classify_images function
+#             function and results for the function call within main.
+#            -The CNN model architecture as model within classify_images function
 #             and in_arg.arch for the function call within main.
 #           This function uses the extend function to add items to the list
 #           that's the 'value' of the results dictionary. You will be adding the
@@ -21,18 +21,17 @@
 #
 ##
 # Imports classifier function for using CNN to classify images
-from classifier import classifier
 import os
-from typing import Any
+from typing import Any, Literal
+
+from classifier import classifier
 
 
-# TODO 3: Define classify_images function below, specifically replace the None
-#       below by the function definition of the classify_images function.
-#       Notice that this function doesn't return anything because the
-#       results_dic dictionary that is passed into the function is a mutable
-#       data type so no return is needed.
-#
-def classify_images(images_dir: str, results_dic: dict[str, list[Any]], model):
+def classify_images(
+    images_dir: str,
+    results_dic: dict[str, list[Any]],
+    model: Literal["alexnet", "resnet", "vgg"],
+) -> None:
     """
     Creates classifier labels with classifier function, compares pet labels to
     the classifier labels, and adds the classifier label and the comparison of
@@ -61,17 +60,15 @@ def classify_images(images_dir: str, results_dic: dict[str, list[Any]], model):
                 --- where index 1 & index 2 are added by this function ---
                   NEW - index 1 = classifier label (string)
                   NEW - index 2 = 1/0 (int)  where 1 = match between pet image
-                    and classifer labels and 0 = no match between labels
+                    and classifier labels and 0 = no match between labels
       model - Indicates which CNN model architecture will be used by the
               classifier function to classify the pet images,
               values must be either: resnet alexnet vgg (string)
      Returns:
            None - results_dic is mutable data type so no return needed.
     """
-    for path in os.listdir(images_dir):
-        filename = os.path.basename(path)
-        label = classifier(os.path.join(images_dir, path), model).lower().strip()
-        result = results_dic[filename]
+    for filename, result in results_dic.items():
+        label = classifier(os.path.join(images_dir, filename), model).lower().strip()
         result.append(label)
         labels = (sublabel.strip() for sublabel in label.split(","))
         result.append(int(result[0] in labels))

@@ -315,24 +315,23 @@ Pct Corr dog: 100.0 Pct Corr NOTdog:  90.0  Pct Corr Breed:  90.0
  ** Check Statistics - calculated from this function as a check:
 N Images: 40  N Dog Images: 30  N NotDog Images: 10 
 Pct Corr dog: 100.0 Pct Corr NOTdog:  90.0  Pct Corr Breed:  90.0
-{'n_correct_breed': 27,
- 'n_correct_dogs': 30,
- 'n_correct_notdogs': 9,
- 'n_dogs_img': 30,
- 'n_images': 40,
- 'n_match': 33,
- 'n_notdogs_img': 10,
- 'pct_correct_breed': 90.0,
- 'pct_correct_dogs': 100.0,
- 'pct_correct_notdogs': 90.0,
- 'pct_match': 82.5}
-[]
-['Beagle_01170.jpg',
- 'Golden_retriever_05182.jpg',
- 'Great_pyrenees_05367.jpg',
- 'cat_01.jpg',
- 'gecko_02.jpg',
- 'gecko_80.jpg',
- 'great_horned_owl_02.jpg']
+
+
+*** Results Summary for CNN Model Architecture resnet ***
+N Images            :  40
+N Dog Images        :  30
+N Not-Dog Images    :  10
+pct_correct_breed   : 90.00%
+pct_correct_dogs    : 100.00%
+pct_correct_notdogs : 90.00%
+pct_match           : 82.50%
+
+INCORRECT Dog/NOT Dog Assignments:
+Real:                        cat   Classifier:   norwegian elkhound, elkhound
+
+INCORRECT Dog Breed Assignments:
+Real:                     beagle   Classifier:  walker hound, walker foxhound
+Real:           golden retriever   Classifier:                       leonberg
+Real:             great pyrenees   Classifier:                         kuvasz
 
 ** Total Elapsed Runtime: 0:0:2

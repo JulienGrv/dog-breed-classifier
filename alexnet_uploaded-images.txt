@@ -57,18 +57,18 @@ Pct Corr dog:  50.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  50.0
  ** Check Statistics - calculated from this function as a check:
 N Images:  4  N Dog Images:  2  N NotDog Images:  2 
 Pct Corr dog:  50.0 Pct Corr NOTdog: 100.0  Pct Corr Breed:  50.0
-{'n_correct_breed': 1,
- 'n_correct_dogs': 1,
- 'n_correct_notdogs': 2,
- 'n_dogs_img': 2,
- 'n_images': 4,
- 'n_match': 1,
- 'n_notdogs_img': 2,
- 'pct_correct_breed': 50.0,
- 'pct_correct_dogs': 50.0,
- 'pct_correct_notdogs': 100.0,
- 'pct_match': 25.0}
-['Labrador_retriever_02.jpg']
-['Computer_keyboard_01.jpg', 'Labrador_retriever_02.jpg', 'Raccoon_01.jpg']
+
+
+*** Results Summary for CNN Model Architecture alexnet ***
+N Images            :   4
+N Dog Images        :   2
+N Not-Dog Images    :   2
+pct_correct_breed   : 50.00%
+pct_correct_dogs    : 50.00%
+pct_correct_notdogs : 100.00%
+pct_match           : 25.00%
+
+INCORRECT Dog/NOT Dog Assignments:
+Real:         labrador retriever   Classifier:                    soccer ball
 
 ** Total Elapsed Runtime: 0:0:0
